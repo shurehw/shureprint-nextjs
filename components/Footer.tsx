@@ -58,7 +58,7 @@ export default function Footer() {
         <div className="footer_column">
           <h5 className="footer_heading">Newsletter</h5>
           <div className="form-block w-form">
-            <form onSubmit={handleNewsletterSubmit} className="newsletter-form" style={{ display: showSuccess ? 'none' : 'flex' }}>
+            <form onSubmit={handleNewsletterSubmit} className="newsletter-form" style={{ display: showSuccess ? 'none' : 'flex', gap: '0.5rem' }}>
               <input
                 type="email"
                 className="text-field is--footer w-input"

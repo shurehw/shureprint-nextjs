@@ -194,7 +194,7 @@ img {
 /* Featured Section */
 .featured-section {
     position: relative;
-    padding: 4vw 2vw;
+    padding: 6vw 2vw;
     background-color: #f6efe8;
 }
 
@@ -355,7 +355,7 @@ img {
 
 /* Company Section */
 .company-section {
-    padding: 4rem 2rem;
+    padding: 6vw 2vw;
     max-width: 1400px;
     margin: 0 auto;
     border-top: 1px solid #000;
@@ -404,7 +404,7 @@ img {
 
 /* Contact Section */
 .contact-section {
-    padding: 4rem 2rem;
+    padding: 6vw 2vw;
     max-width: 1400px;
     margin: 0 auto;
     border-top: 1px solid #000;
@@ -644,12 +644,52 @@ img {
 .footer {
     background: #000;
     color: #fff;
-    padding: 4rem 2rem 2rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    padding: 6rem 3rem 3rem;
     max-width: 1400px;
     margin: 4rem auto 0;
+}
+
+.footer_top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #333;
+}
+
+.footer_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer_column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer_heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.footer_text {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.footer_links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .footer-column {
@@ -677,7 +717,7 @@ img {
 .newsletter-form {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .newsletter-email {
@@ -793,6 +833,21 @@ img {
 
     .company-heading {
         font-size: 2rem;
+    }
+
+    .footer_top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer_bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer_links {
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .heading-large {
@@ -930,7 +985,7 @@ img {
     justify-items: start;
     align-items: start;
     grid-auto-columns: 1fr;
-    grid-column-gap: 1vw;
+    grid-column-gap: 2vw;
     grid-template-columns: 0.5fr 1fr;
     grid-template-rows: auto;
 }
@@ -953,7 +1008,7 @@ img {
     display: grid;
     width: 100%;
     grid-auto-columns: 1fr;
-    grid-column-gap: 1vw;
+    grid-column-gap: 2vw;
     grid-row-gap: 4vw;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;

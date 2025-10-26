@@ -32,13 +32,13 @@ const capabilities = [
 
 export default function CapabilitiesSection() {
   return (
-    <section className="company-section" style={{ paddingTop: '4vw', paddingBottom: '4vw' }}>
+    <section className="company-section">
       <h2 className="company-heading">Our Capabilities</h2>
 
       <div className="capabilities-grid" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(5, 1fr)',
-        gap: '1vw'
+        gap: '2vw'
       }}>
         {capabilities.map((capability, index) => (
           <Link key={index} href={capability.link} className="capability-tile" style={{
@@ -49,7 +49,7 @@ export default function CapabilitiesSection() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            padding: '1.5vw',
+            padding: '2vw',
             color: '#fff',
             transition: 'transform 0.3s ease'
           }}>

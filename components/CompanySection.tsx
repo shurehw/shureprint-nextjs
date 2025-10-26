@@ -14,14 +14,14 @@ export default function CompanySection() {
           <p className="desk-80">
             <em>We're not just a print shop. shureprint offers complete supply chain services: warehousing, fulfillment, international sourcing, and design—all from our LA facility. Built by hospitality industry leaders with decades of experience, we combine the expertise of enterprise suppliers with white-glove personal service.</em>
           </p>
-          <div style={{ display: 'flex', gap: '1vw', marginTop: '2vw', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '1.5vw', marginTop: '2vw', flexWrap: 'wrap' }}>
             <Link href="/capabilities/warehousing-fulfillment" style={{
               padding: '0.8vw 1.5vw',
               background: '#e3fc02',
               color: '#000',
               borderRadius: '50px',
               textDecoration: 'none',
-              fontSize: '0.9vw',
+              fontSize: '1vw',
               fontWeight: 600,
               border: '1px solid #000'
             }}>
@@ -33,7 +33,7 @@ export default function CompanySection() {
               color: '#000',
               borderRadius: '50px',
               textDecoration: 'none',
-              fontSize: '0.9vw',
+              fontSize: '1vw',
               border: '1px solid #000'
             }}>
               Unlimited Design Revisions
@@ -44,7 +44,7 @@ export default function CompanySection() {
               color: '#000',
               borderRadius: '50px',
               textDecoration: 'none',
-              fontSize: '0.9vw',
+              fontSize: '1vw',
               border: '1px solid #000'
             }}>
               Who We Are →

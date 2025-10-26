@@ -17,7 +17,6 @@ export default function Hero() {
         <div style={{ display: 'flex', gap: '1vw', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
           <Link
             href="/contact-page"
-            className="nav_button w-button"
             style={{
               display: 'inline-block',
               fontSize: 'max(1.1vw, 17px)',
@@ -27,7 +26,8 @@ export default function Hero() {
               borderRadius: '100vw',
               textDecoration: 'none',
               border: '1px solid #000',
-              transition: 'all 0.3s ease'
+              transition: 'all 0.3s ease',
+              fontWeight: '400'
             }}
           >
             Request a Quote →
@@ -43,7 +43,8 @@ export default function Hero() {
               borderRadius: '100vw',
               textDecoration: 'none',
               border: '1px solid #000',
-              transition: 'all 0.3s ease'
+              transition: 'all 0.3s ease',
+              fontWeight: '400'
             }}
           >
             See Design Services
