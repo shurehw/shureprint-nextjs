@@ -74,7 +74,7 @@ export default function Navigation() {
             <div className="text-block-2">Capabilities</div>
           </Link>
           <Link href="/shop" className="div-block w-inline-block">
-            <div className="text-block-2">Product Offerings</div>
+            <div className="text-block-2">Shop</div>
           </Link>
         </nav>
         <Link href="/" className="nav_logo w-nav-brand w--current" aria-label="home">
