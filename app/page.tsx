@@ -3,7 +3,6 @@ import Hero from '@/components/Hero';
 import FeaturedSection from '@/components/FeaturedSection';
 import CompanySection from '@/components/CompanySection';
 import ContactSection from '@/components/ContactSection';
-import HeroProducts from '@/components/HeroProducts';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
         <CompanySection />
         <ContactSection />
       </main>
-      <HeroProducts />
       <Footer />
     </div>
   );
