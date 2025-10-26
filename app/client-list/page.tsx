@@ -49,11 +49,6 @@ const clients = [
   }
 ];
 
-export const metadata = {
-  title: 'Our Clients | Shureprint - Custom Print & Packaging Portfolio',
-  description: 'See how we\'ve helped leading hospitality, food, and retail brands with custom printing and packaging. From Butchers Daughter to Show Me Your Mumu.',
-};
-
 export default function ClientListPage() {
   return (
     <div className="page-wrap">
