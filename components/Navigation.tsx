@@ -63,21 +63,12 @@ export default function Navigation() {
         `}</style>
       </div>
       <div className="nav-contain">
-        <div className="nav_menu w-nav-button">
-          <Link href="/shop">••••</Link>
-        </div>
         <nav role="navigation" className="nav_left w-nav-menu">
           <Link href="/about" className="div-block w-inline-block">
             <div className="text-block-2">About</div>
           </Link>
           <Link href="/capabilities" className="div-block w-inline-block">
             <div className="text-block-2">Capabilities</div>
-          </Link>
-          <Link href="/shop" className="div-block w-inline-block">
-            <div className="text-block-2">Shop</div>
-          </Link>
-          <Link href="/contact-page" className="div-block w-inline-block">
-            <div className="text-block-2">Contact</div>
           </Link>
         </nav>
         <Link href="/" className="nav_logo w-nav-brand w--current" aria-label="home">
@@ -89,6 +80,12 @@ export default function Navigation() {
           />
         </Link>
         <div className="nav_right">
+          <Link href="/shop" className="div-block w-inline-block">
+            <div className="text-block-2">Shop</div>
+          </Link>
+          <Link href="/contact-page" className="div-block w-inline-block">
+            <div className="text-block-2">Contact</div>
+          </Link>
           <Link href="https://shureprint.b2bwave.com/" className="nav_cart w-inline-block">
             <div className="sr-only">Two Two Cart</div>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
