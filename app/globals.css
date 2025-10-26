@@ -917,9 +917,7 @@ img {
 
 /* Capability Tiles */
 .capability-tile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    background-color: #f6efe8 !important;
+    transform: scale(1.05);
 }
 
 /* Home Grid Layout */
