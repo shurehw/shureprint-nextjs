@@ -82,7 +82,7 @@ export default function Hero() {
           <img
             src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/62745951c8f8742f2b75ba83_Artboard%20%E2%80%93%2001.png"
             loading="lazy"
-            alt=""
+            alt="Custom branded packaging for hospitality businesses"
             className="image-3"
           />
           <div className="hero-product-overlay" />
@@ -91,7 +91,7 @@ export default function Hero() {
           <img
             src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/6279742fcf35ee7958c5d5a9_Artboard%20%E2%80%93%207.jpg"
             loading="lazy"
-            alt=""
+            alt="Premium custom printed hospitality supplies"
             className="image-10"
           />
           <div className="hero-product-overlay" />

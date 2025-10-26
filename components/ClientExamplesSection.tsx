@@ -85,7 +85,7 @@ export default function ClientExamplesSection() {
                     <img
                       src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/62467e9f74f3012057ced356_Arrow-cta.svg"
                       loading="lazy"
-                      alt=""
+                      alt="View client work arrow icon"
                       className="arrow"
                     />
                   </Link>
@@ -103,7 +103,7 @@ export default function ClientExamplesSection() {
               <img
                 src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/62467e9f74f3012057ced356_Arrow-cta.svg"
                 loading="lazy"
-                alt=""
+                alt="View all cases arrow icon"
                 className="arrow"
               />
             </div>

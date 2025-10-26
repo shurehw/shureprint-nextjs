@@ -8,7 +8,7 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="nav w-nav">
+    <nav className="nav w-nav" aria-label="Main navigation">
       <div className="custom-css w-embed">
         <style>{`
           .marquee-track {
@@ -62,6 +62,19 @@ export default function Navigation() {
             .featured_category-name:after{
               content: "→"
             }
+
+            .mobile-menu-button {
+              display: block !important;
+              font-size: 1.5rem;
+              padding: 0.5rem;
+              background: none;
+              border: none;
+              cursor: pointer;
+            }
+
+            .nav_left, .nav_right .div-block {
+              display: none !important;
+            }
           }
 
           .mobile-menu {
@@ -93,40 +106,48 @@ export default function Navigation() {
           }
         `}</style>
       </div>
-      <div className="nav-contain">
-        <nav role="navigation" className="nav_left w-nav-menu">
-          <Link href="/about" className="div-block w-inline-block">
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr auto 1fr',
+        alignItems: 'center',
+        width: '100%',
+        padding: '0 2vw',
+        gap: '2vw'
+      }}>
+        <nav role="navigation" style={{ display: 'flex', gap: '0', justifySelf: 'start' }}>
+          <Link href="/about" className="div-block w-inline-block" aria-label="About Shureprint">
             <div className="text-block-2">About</div>
           </Link>
-          <Link href="/capabilities" className="div-block w-inline-block">
+          <Link href="/capabilities" className="div-block w-inline-block" aria-label="Our capabilities and services">
             <div className="text-block-2">Capabilities</div>
           </Link>
         </nav>
-        <Link href="/" className="nav_logo w-nav-brand w--current" aria-label="home">
-          <div className="sr-only">Two Two Logo</div>
+        <Link href="/" style={{ justifySelf: 'center', display: 'flex', alignItems: 'center' }} aria-label="Shureprint home">
           <img
             src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/625762e6d10a111af9c654bb_Shureprint.png"
             alt="Shureprint Logo"
             loading="lazy"
+            style={{ width: '12vw', height: 'auto' }}
           />
         </Link>
-        <div className="nav_right" style={{ display: 'flex', alignItems: 'center', gap: '2vw' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0', justifySelf: 'end' }}>
           <button
             className="mobile-menu-button"
             onClick={() => setMobileMenuOpen(true)}
             style={{ display: 'none' }}
             aria-label="Open menu"
+            aria-expanded={mobileMenuOpen}
           >
             ☰
           </button>
-          <Link href="/shop" className="div-block w-inline-block">
+          <Link href="/shop" className="div-block w-inline-block" aria-label="Shop custom packaging products">
             <div className="text-block-2">Shop</div>
           </Link>
-          <Link href="/contact-page" className="div-block w-inline-block">
+          <Link href="/contact-page" className="div-block w-inline-block" aria-label="Contact us">
             <div className="text-block-2">Contact</div>
           </Link>
-          <Link href="https://shureprint.b2bwave.com/" className="nav_cart w-inline-block" style={{ marginLeft: '0.5vw' }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <Link href="https://shureprint.b2bwave.com/" style={{ marginLeft: '0.5vw', display: 'inline-flex', alignItems: 'center' }} aria-label="Shopping cart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M7 4h10l4 5v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9l4-5z" stroke="black" strokeWidth="2" fill="none"/>
               <path d="M7 4v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4" stroke="black" strokeWidth="2" fill="none"/>
             </svg>
@@ -136,8 +157,10 @@ export default function Navigation() {
             className="div-block w-inline-block"
             style={{
               backgroundColor: '#e3fc02',
-              fontWeight: 600
+              fontWeight: 600,
+              whiteSpace: 'nowrap'
             }}
+            aria-label="Client portal login"
           >
             <div className="text-block-2">Client Portal →</div>
           </Link>
@@ -146,14 +169,14 @@ export default function Navigation() {
 
       {mobileMenuOpen && (
         <div className="mobile-menu">
-          <button className="mobile-menu-close" onClick={() => setMobileMenuOpen(false)}>×</button>
-          <Link href="/" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-          <Link href="/about" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>About</Link>
-          <Link href="/capabilities" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Capabilities</Link>
-          <Link href="/shop" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Shop</Link>
-          <Link href="/contact-page" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
-          <Link href="https://shureprint.b2bwave.com/" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Cart</Link>
-          <Link href="https://shureprint.b2bwave.com" className="mobile-menu-link" style={{ backgroundColor: '#e3fc02', borderRadius: '8px', padding: '1rem' }} onClick={() => setMobileMenuOpen(false)}>Client Portal →</Link>
+          <button className="mobile-menu-close" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">×</button>
+          <Link href="/" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)} aria-label="Home">Home</Link>
+          <Link href="/about" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)} aria-label="About Shureprint">About</Link>
+          <Link href="/capabilities" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)} aria-label="Our capabilities and services">Capabilities</Link>
+          <Link href="/shop" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)} aria-label="Shop custom packaging products">Shop</Link>
+          <Link href="/contact-page" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)} aria-label="Contact us">Contact</Link>
+          <Link href="https://shureprint.b2bwave.com/" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)} aria-label="Shopping cart">Cart</Link>
+          <Link href="https://shureprint.b2bwave.com" className="mobile-menu-link" style={{ backgroundColor: '#e3fc02', borderRadius: '8px', padding: '1rem' }} onClick={() => setMobileMenuOpen(false)} aria-label="Client portal login">Client Portal →</Link>
         </div>
       )}
     </nav>

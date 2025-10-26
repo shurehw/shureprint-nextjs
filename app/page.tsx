@@ -7,6 +7,11 @@ import CompanySection from '@/components/CompanySection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
+export const metadata = {
+  title: 'Premium Custom Print & Packaging',
+  description: 'Hospitality-focused custom packaging with expert design services. Warehousing, fulfillment, and unlimited revisions from our LA facility. Serving restaurants, hotels, and retail brands.',
+};
+
 export default function Home() {
   return (
     <div className="page-wrap">

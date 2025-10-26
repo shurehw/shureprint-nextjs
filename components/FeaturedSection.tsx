@@ -65,12 +65,12 @@ export default function FeaturedSection() {
         </div>
         <div className="home_grid-right">
           {products.boxes.map((product, index) => (
-            <Link href="/shop?category=Boxes" key={index} className="featured-product w-inline-block">
+            <Link href="/shop?category=Boxes" key={index} className="featured-product w-inline-block" aria-label={`Shop ${product.name} - Custom printed boxes for branded packaging`}>
               <div className="featured-product_top">
-                <img src={product.mainImage} loading="eager" alt="" className="featured_products-image" />
-                {product.spinner1 && <img src={product.spinner1} loading="lazy" alt="" className="buy-spinner_first" />}
-                {product.spinner2 && <img src={product.spinner2} loading="lazy" alt="" className="buy-spinner" />}
-                <img src={product.secondaryImage} loading="eager" alt="" className="featured_products-image-secondary" />
+                <img src={product.mainImage} loading="eager" alt={`Custom printed ${product.name.toLowerCase()} for branded packaging`} className="featured_products-image" />
+                {product.spinner1 && <img src={product.spinner1} loading="lazy" alt="" aria-hidden="true" className="buy-spinner_first" />}
+                {product.spinner2 && <img src={product.spinner2} loading="lazy" alt="" aria-hidden="true" className="buy-spinner" />}
+                <img src={product.secondaryImage} loading="eager" alt={`${product.name} custom packaging example`} className="featured_products-image-secondary" />
               </div>
               <div className="featured-product_bottom">
                 <h4 className="featured-product_name">{product.name}</h4>
@@ -79,7 +79,7 @@ export default function FeaturedSection() {
           ))}
         </div>
       </div>
-      <Link href="/product" className="footer-button w-button">
+      <Link href="/product" className="footer-button w-button" aria-label="View our complete product lineup">
         → View Our Complete Line up
       </Link>
 
@@ -90,12 +90,12 @@ export default function FeaturedSection() {
         </div>
         <div className="home_grid-right">
           {products.paperBags.map((product, index) => (
-            <Link href="/shop?category=Paper+Bags" key={index} className="featured-product w-inline-block">
+            <Link href="/shop?category=Paper+Bags" key={index} className="featured-product w-inline-block" aria-label={`Shop ${product.name} - Custom paper bags for retail branding`}>
               <div className="featured-product_top">
-                <img src={product.mainImage} loading="eager" alt="" className="featured_products-image" />
-                {product.spinner1 && <img src={product.spinner1} loading="lazy" alt="" className="buy-spinner_first" />}
-                {product.spinner2 && <img src={product.spinner2} loading="lazy" alt="" className="buy-spinner" />}
-                <img src={product.secondaryImage} loading="eager" alt="" className="featured_products-image-secondary" />
+                <img src={product.mainImage} loading="eager" alt={`Custom ${product.name.toLowerCase()} paper bags for retail branding`} className="featured_products-image" />
+                {product.spinner1 && <img src={product.spinner1} loading="lazy" alt="" aria-hidden="true" className="buy-spinner_first" />}
+                {product.spinner2 && <img src={product.spinner2} loading="lazy" alt="" aria-hidden="true" className="buy-spinner" />}
+                <img src={product.secondaryImage} loading="eager" alt={`${product.name} paper bag packaging example`} className="featured_products-image-secondary" />
               </div>
               <div className="featured-product_bottom">
                 <h4 className="featured-product_name">{product.name}</h4>
@@ -104,7 +104,7 @@ export default function FeaturedSection() {
           ))}
         </div>
       </div>
-      <Link href="/product" className="footer-button w-button">
+      <Link href="/product" className="footer-button w-button" aria-label="View our complete product lineup">
         → View Our Complete Line up
       </Link>
 
@@ -115,12 +115,12 @@ export default function FeaturedSection() {
         </div>
         <div className="home_grid-right">
           {products.cupsContainers.map((product, index) => (
-            <Link href="/shop?category=Cups+%26+Containers" key={index} className="featured-product w-inline-block">
+            <Link href="/shop?category=Cups+%26+Containers" key={index} className="featured-product w-inline-block" aria-label={`Shop ${product.name} - Custom printed cups and containers for food service branding`}>
               <div className="featured-product_top">
-                <img src={product.mainImage} loading="eager" alt="" className="featured_products-image" />
-                {product.spinner1 && <img src={product.spinner1} loading="lazy" alt="" className="buy-spinner_first" />}
-                {product.spinner2 && <img src={product.spinner2} loading="lazy" alt="" className="buy-spinner" />}
-                <img src={product.secondaryImage} loading="eager" alt="" className="featured_products-image-secondary" />
+                <img src={product.mainImage} loading="eager" alt={`Custom printed ${product.name.toLowerCase()} for food service branding`} className="featured_products-image" />
+                {product.spinner1 && <img src={product.spinner1} loading="lazy" alt="" aria-hidden="true" className="buy-spinner_first" />}
+                {product.spinner2 && <img src={product.spinner2} loading="lazy" alt="" aria-hidden="true" className="buy-spinner" />}
+                <img src={product.secondaryImage} loading="eager" alt={`${product.name} food service packaging example`} className="featured_products-image-secondary" />
               </div>
               <div className="featured-product_bottom">
                 <h4 className="featured-product_name">{product.name}</h4>
@@ -129,7 +129,7 @@ export default function FeaturedSection() {
           ))}
         </div>
       </div>
-      <Link href="/product" className="footer-button w-button">
+      <Link href="/product" className="footer-button w-button" aria-label="View our complete product lineup">
         → View Our Complete Line up
       </Link>
     </section>

@@ -569,16 +569,114 @@ img {
     font-weight: 500;
 }
 
-/* Hero Products Sidebar */
-.hero-products {
-    position: fixed;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 999;
+/* Track and Grid About */
+.track {
+    position: relative;
+    min-height: auto;
+    padding: 4vw 0;
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-about {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 2vw;
+    grid-row-gap: 2vw;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2vw;
+}
+
+.frame-grid {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5vw;
+    aspect-ratio: 1;
+}
+
+.frame-grid.med-size {
+    grid-column: span 2;
+}
+
+.content-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hero Products Sections */
+.hero-products {
+    position: relative;
+    width: 100%;
+    padding: 6vw 4vw;
+    background: #f6efe8;
+}
+
+.hero-products.second {
+    background: #fff;
+}
+
+.main-grid-2 {
+    position: relative;
+    display: grid;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 2vw;
+    grid-row-gap: 2vw;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+}
+
+.main-grid-2.art-background {
+    background-image: url("https://assets.website-files.com/622fa56ecc9274a545158f70/626863b7cda4c2a89874e39a_iPhone%2013%2C%2012%20Pro%20%E2%80%93%2012.png");
+    background-position: 50% 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.sticky-wrapper-heading {
+    position: sticky;
+    top: 140px;
+    grid-column: 1 / span 5;
+    padding-right: 2vw;
+}
+
+.main-grid-2 > div:not(.sticky-wrapper-heading) {
+    grid-column: 6 / span 7;
+    padding-left: 2vw;
+}
+
+/* Icon containers spacing */
+.div-block-6, .div-block-7, .div-block-8, .div-block-9, .div-block-10 {
+    margin-top: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main paragraph spacing */
+.main-paragraph {
+    margin-bottom: 2vw;
+    line-height: 1.6;
+}
+
+/* Inner padding for capability lists */
+.inner-padding-medium {
+    padding: 2vw 0;
 }
 
 .hero_products-item {
@@ -672,9 +770,9 @@ img {
     padding-bottom: 3rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid #333;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .footer_bottom {
@@ -684,9 +782,9 @@ img {
     padding-top: 2rem;
     flex-wrap: wrap;
     gap: 2rem;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .footer_column {
@@ -1449,4 +1547,126 @@ img {
     .featured_category-name:after {
         content: "→";
     }
+}
+
+/* ========================================
+   ACCESSIBILITY & WCAG AA IMPROVEMENTS
+   ======================================== */
+
+/* Focus Indicators for Keyboard Navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid #000 !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* High contrast focus for yellow elements */
+.banner:focus-within,
+button[style*="e3fc02"]:focus-visible,
+a[style*="e3fc02"]:focus-visible {
+    outline-color: #000 !important;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Improve button contrast - darken lime yellow for better readability */
+button[style*="background:#e3fc02"],
+button[style*="background-color:#e3fc02"],
+a[style*="background:#e3fc02"],
+a[style*="background-color:#e3fc02"],
+.banner,
+.ui-dot {
+    /* Keep lime yellow but ensure text is always black with sufficient contrast */
+    color: #000 !important;
+    font-weight: 500; /* Slightly bolder text improves readability */
+}
+
+/* Make sure all interactive elements have visible cursor */
+button,
+[role="button"],
+.w-button,
+.button,
+.form-button,
+.footer-button,
+.nav-button,
+.filter-pill,
+.capability-tile,
+.featured-product,
+.product-card,
+.sample-btn,
+.quote-btn,
+a {
+    cursor: pointer;
+}
+
+/* Skip to main content link for screen readers */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999999;
+    padding: 1em;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.skip-to-main:focus {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+}
+
+/* Improve link underlines for better visibility */
+.footer_link,
+.company-link,
+.contact-link {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.3s ease;
+}
+
+.footer_link:hover,
+.company-link:hover,
+.contact-link:hover,
+.footer_link:focus-visible,
+.company-link:focus-visible,
+.contact-link:focus-visible {
+    text-decoration-color: currentColor;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .marquee-track {
+        animation: none !important;
+    }
+
+    .buy-spinner,
+    .buy-spinner_first,
+    .contact_spin {
+        animation: none !important;
+    }
+}
+
+/* Better color contrast for disabled states */
+button:disabled,
+input:disabled,
+textarea:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }

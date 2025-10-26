@@ -76,17 +76,17 @@ export default function Product() {
           </div>
           <div className="marquee">
             <div className="marquee-track is--desk">
-              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="" className="marquee-image" />
-              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="" className="marquee-image" />
-              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="" className="marquee-image" />
-              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="" className="marquee-image" />
-              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="" className="marquee-image" />
-              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="" className="marquee-image" />
+              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="Products banner" className="marquee-image" />
+              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="Products banner" className="marquee-image" />
+              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="Products banner" className="marquee-image" />
+              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="Products banner" className="marquee-image" />
+              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="Products banner" className="marquee-image" />
+              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7607d608a480f1a6b3c6_Products.png" alt="Products banner" className="marquee-image" />
             </div>
             <div className="marquee-track">
-              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/6246165ac21f31848333e767_Shure%20Print.png" alt="" className="marquee-image" />
-              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/6246165ac21f31848333e767_Shure%20Print.png" alt="" className="marquee-image" />
-              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/6246165ac21f31848333e767_Shure%20Print.png" alt="" className="marquee-image" />
+              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/6246165ac21f31848333e767_Shure%20Print.png" alt="Shureprint logo banner" className="marquee-image" />
+              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/6246165ac21f31848333e767_Shure%20Print.png" alt="Shureprint logo banner" className="marquee-image" />
+              <img src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/6246165ac21f31848333e767_Shure%20Print.png" alt="Shureprint logo banner" className="marquee-image" />
             </div>
           </div>
 
@@ -99,7 +99,7 @@ export default function Product() {
                       <img
                         src={category.image}
                         loading="eager"
-                        alt=""
+                        alt={`${category.name} custom printed products`}
                         className="hero_products-image"
                       />
                       <h4 className="hero_products-arrow">↓</h4>

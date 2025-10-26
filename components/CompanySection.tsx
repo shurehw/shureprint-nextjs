@@ -58,7 +58,7 @@ export default function CompanySection() {
               loading="lazy"
               sizes="(max-width: 479px) 82vw, (max-width: 767px) 81vw, (max-width: 991px) 27vw, 31vw"
               srcSet="https://assets.website-files.com/622fa56ecc9274a545158f70/6268e51868b3d70ed00b662d_shure_2256-p-500.jpeg 500w, https://assets.website-files.com/622fa56ecc9274a545158f70/6268e51868b3d70ed00b662d_shure_2256-p-800.jpeg 800w, https://assets.website-files.com/622fa56ecc9274a545158f70/6268e51868b3d70ed00b662d_shure_2256-p-1080.jpeg 1080w, https://assets.website-files.com/622fa56ecc9274a545158f70/6268e51868b3d70ed00b662d_shure_2256.jpg 1535w"
-              alt=""
+              alt="Shureprint LA warehousing and fulfillment facility"
               className="home-company_image"
             />
             <img

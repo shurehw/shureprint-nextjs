@@ -235,23 +235,28 @@ export default function ShopPage() {
             alignItems: 'center'
           }}>
             {/* Search */}
-            <input
-              type="text"
-              placeholder="Search products..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              style={{
-                flex: '1 1 300px',
-                padding: '0.8vw 1.5vw',
-                fontSize: '1vw',
-                border: '1px solid #000',
-                borderRadius: '50px',
-                background: '#fff'
-              }}
-            />
+            <div role="search" style={{ flex: '1 1 300px' }}>
+              <label htmlFor="product-search" className="sr-only">Search products</label>
+              <input
+                type="text"
+                id="product-search"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '0.8vw 1.5vw',
+                  fontSize: '1vw',
+                  border: '1px solid #000',
+                  borderRadius: '50px',
+                  background: '#fff'
+                }}
+                aria-label="Search products by name or description"
+              />
+            </div>
 
             {/* Type Filter Pills */}
-            <div style={{ display: 'flex', gap: '0.5vw', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: '0.5vw', flexWrap: 'wrap', alignItems: 'center' }} role="group" aria-label="Product type filters">
               {(['all', 'cups', 'bags', 'containers', 'boxes'] as ProductType[]).map((type) => (
                 <button
                   key={type}
@@ -268,6 +273,8 @@ export default function ShopPage() {
                     transition: 'all 0.3s ease',
                     textTransform: 'capitalize'
                   }}
+                  aria-label={`Filter by ${type === 'all' ? 'all products' : type}`}
+                  aria-pressed={selectedType === type}
                 >
                   {type === 'all' ? 'All Products' : type}
                 </button>
@@ -275,7 +282,9 @@ export default function ShopPage() {
             </div>
 
             {/* Material Filter */}
+            <label htmlFor="material-filter" className="sr-only">Filter by material</label>
             <select
+              id="material-filter"
               value={selectedMaterial}
               onChange={(e) => setSelectedMaterial(e.target.value)}
               style={{
@@ -286,6 +295,7 @@ export default function ShopPage() {
                 background: '#fff',
                 cursor: 'pointer'
               }}
+              aria-label="Filter products by material"
             >
               <option value="all">All Materials</option>
               <option value="paper">Paper</option>
@@ -295,7 +305,9 @@ export default function ShopPage() {
             </select>
 
             {/* Industry Filter */}
+            <label htmlFor="industry-filter" className="sr-only">Filter by industry</label>
             <select
+              id="industry-filter"
               value={selectedIndustry}
               onChange={(e) => setSelectedIndustry(e.target.value)}
               style={{
@@ -306,6 +318,7 @@ export default function ShopPage() {
                 background: '#fff',
                 cursor: 'pointer'
               }}
+              aria-label="Filter products by industry"
             >
               <option value="all">All Industries</option>
               <option value="hospitality">Hospitality</option>
@@ -314,7 +327,9 @@ export default function ShopPage() {
             </select>
 
             {/* Price Range Filter */}
+            <label htmlFor="price-filter" className="sr-only">Filter by price range</label>
             <select
+              id="price-filter"
               value={priceRange}
               onChange={(e) => setPriceRange(e.target.value)}
               style={{
@@ -325,6 +340,7 @@ export default function ShopPage() {
                 background: '#fff',
                 cursor: 'pointer'
               }}
+              aria-label="Filter products by price range"
             >
               <option value="all">All Prices</option>
               <option value="under-100">Under $100</option>
@@ -334,7 +350,9 @@ export default function ShopPage() {
             </select>
 
             {/* Sort */}
+            <label htmlFor="sort-select" className="sr-only">Sort products</label>
             <select
+              id="sort-select"
               value={selectedSort}
               onChange={(e) => setSelectedSort(e.target.value as SortOption)}
               style={{
@@ -345,6 +363,7 @@ export default function ShopPage() {
                 background: '#fff',
                 cursor: 'pointer'
               }}
+              aria-label="Sort products by"
             >
               <option value="newest">Newest</option>
               <option value="price-low">Price: Low to High</option>
@@ -361,7 +380,7 @@ export default function ShopPage() {
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <div style={{ fontSize: '0.9vw', color: '#666' }}>
+            <div style={{ fontSize: '0.9vw', color: '#666' }} role="status" aria-live="polite" aria-atomic="true">
               {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'} found
             </div>
             {(selectedType !== 'all' || selectedMaterial !== 'all' || selectedIndustry !== 'all' || priceRange !== 'all' || searchQuery) && (
@@ -384,6 +403,7 @@ export default function ShopPage() {
                   transition: 'all 0.3s ease'
                 }}
                 className="clear-filters-btn"
+                aria-label="Clear all active filters"
               >
                 Clear all filters
               </button>
@@ -429,7 +449,7 @@ export default function ShopPage() {
                     className="product-card"
                   >
                     {/* Product Image */}
-                    <Link href={`/products/${product.id}`}>
+                    <Link href={`/products/${product.id}`} aria-label={`View ${product.name} details`}>
                       <div
                         className="product-image-container"
                         style={{
@@ -445,7 +465,7 @@ export default function ShopPage() {
                           <>
                             <img
                               src={product.primary_image_url}
-                              alt={product.name}
+                              alt={`${product.name} - Custom packaging product`}
                               className="product-main-image"
                               style={{
                                 position: 'absolute',
@@ -460,7 +480,7 @@ export default function ShopPage() {
                             {/* Secondary hover image - using same image with filter for demo */}
                             <img
                               src={product.primary_image_url}
-                              alt={product.name}
+                              alt=""
                               className="product-secondary-image"
                               style={{
                                 position: 'absolute',
@@ -473,6 +493,7 @@ export default function ShopPage() {
                                 transition: 'opacity 0.3s ease',
                                 filter: 'brightness(1.1) saturate(1.2)'
                               }}
+                              aria-hidden="true"
                             />
                           </>
                         )}
@@ -491,6 +512,7 @@ export default function ShopPage() {
                             opacity: 0,
                             transition: 'opacity 0.3s ease'
                           }}
+                          aria-hidden="true"
                         />
                       </div>
                     </Link>
@@ -625,6 +647,7 @@ export default function ShopPage() {
                             fontWeight: '400'
                           }}
                           className="sample-btn"
+                          aria-label={`Request free sample of ${product.name}`}
                         >
                           📦 Sample
                         </button>
@@ -642,6 +665,7 @@ export default function ShopPage() {
                             fontWeight: '500'
                           }}
                           className="quote-btn"
+                          aria-label={`Get quote for ${product.name}`}
                         >
                           Get Quote
                         </button>
@@ -663,6 +687,7 @@ export default function ShopPage() {
                             justifyContent: 'center'
                           }}
                           className="view-product-btn"
+                          aria-label={`View details for ${product.name}`}
                         >
                           Details →
                         </Link>
@@ -695,7 +720,7 @@ export default function ShopPage() {
             borderRadius: '50px',
             textDecoration: 'none',
             fontSize: '1vw'
-          }}>
+          }} aria-label="Contact our packaging experts">
             → Contact Us
           </Link>
         </section>
@@ -703,7 +728,7 @@ export default function ShopPage() {
         {/* Client Examples Section */}
         <section className="contact-section" style={{ padding: '4vw 2vw', background: '#fff' }}>
           <h2 className="company-heading" style={{ fontSize: '2.5vw', marginBottom: '2vw', textAlign: 'left', maxWidth: '1400px', margin: '0 auto 2vw' }}>
-            <Link href="/client-list" className="company-link" style={{ textDecoration: 'none', color: '#000' }}>
+            <Link href="/client-list" className="company-link" style={{ textDecoration: 'none', color: '#000' }} aria-label="View our client examples">
               → Client Examples
             </Link>
           </h2>
@@ -731,6 +756,7 @@ export default function ShopPage() {
                     display: 'block',
                     transition: 'transform 0.3s ease'
                   }}
+                  aria-label={`View ${client.name} client case study`}
                 >
                   <div style={{
                     position: 'absolute',
@@ -739,7 +765,7 @@ export default function ShopPage() {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     transition: 'transform 0.3s ease'
-                  }} className="client-tile-bg" />
+                  }} className="client-tile-bg" role="img" aria-label={`${client.name} packaging example`} />
                   <div style={{
                     position: 'absolute',
                     bottom: '1.5vw',
@@ -764,7 +790,7 @@ export default function ShopPage() {
                 borderRadius: '50px',
                 textDecoration: 'none',
                 fontSize: '1vw'
-              }}>
+              }} aria-label="View all client case studies">
                 View all cases →
               </Link>
             </div>
@@ -789,6 +815,9 @@ export default function ShopPage() {
             padding: '2vw'
           }}
           onClick={() => setShowQuoteModal(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="quote-modal-title"
         >
           <div
             style={{
@@ -813,11 +842,12 @@ export default function ShopPage() {
                 cursor: 'pointer',
                 color: '#999'
               }}
+              aria-label="Close quote modal"
             >
               ×
             </button>
 
-            <h2 style={{ fontSize: '1.8vw', marginBottom: '1vw' }}>
+            <h2 id="quote-modal-title" style={{ fontSize: '1.8vw', marginBottom: '1vw' }}>
               Request a Quote
             </h2>
             <h3 style={{ fontSize: '1.3vw', color: '#666', marginBottom: '2vw', fontWeight: '400' }}>
@@ -889,6 +919,9 @@ export default function ShopPage() {
             padding: '2vw'
           }}
           onClick={() => setShowSampleModal(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="sample-modal-title"
         >
           <div
             style={{
@@ -913,13 +946,14 @@ export default function ShopPage() {
                 cursor: 'pointer',
                 color: '#999'
               }}
+              aria-label="Close sample modal"
             >
               ×
             </button>
 
             <div style={{ textAlign: 'center', marginBottom: '1.5vw' }}>
-              <div style={{ fontSize: '3vw', marginBottom: '0.5vw' }}>📦</div>
-              <h2 style={{ fontSize: '1.8vw', marginBottom: '0.5vw' }}>
+              <div style={{ fontSize: '3vw', marginBottom: '0.5vw' }} aria-hidden="true">📦</div>
+              <h2 id="sample-modal-title" style={{ fontSize: '1.8vw', marginBottom: '0.5vw' }}>
                 Request Free Sample
               </h2>
               <h3 style={{ fontSize: '1.2vw', color: '#666', fontWeight: '400' }}>
@@ -961,6 +995,7 @@ export default function ShopPage() {
                   fontSize: '1vw',
                   cursor: 'pointer'
                 }}
+                aria-label="Cancel sample request"
               >
                 Cancel
               </button>
@@ -980,6 +1015,7 @@ export default function ShopPage() {
                   display: 'block',
                   fontWeight: '500'
                 }}
+                aria-label={`Request sample of ${selectedProduct.name}`}
               >
                 Request Sample
               </Link>

@@ -49,7 +49,7 @@ export default function HeroProducts() {
             <img
               src={product.image}
               loading="lazy"
-              alt=""
+              alt={`${product.name} custom branded products`}
               className="hero_products-image"
             />
             <h5 className="hero_products-name">{product.name}</h5>
