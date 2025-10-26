@@ -13,7 +13,18 @@ export default function BuiltForGreatBrands() {
         rx="380"
         ry="180"
         stroke="black"
-        strokeWidth="2"
+        strokeWidth="3"
+        fill="none"
+      />
+
+      {/* Middle oval frame */}
+      <ellipse
+        cx="400"
+        cy="200"
+        rx="370"
+        ry="170"
+        stroke="black"
+        strokeWidth="1"
         fill="none"
       />
 
@@ -21,10 +32,10 @@ export default function BuiltForGreatBrands() {
       <ellipse
         cx="400"
         cy="200"
-        rx="370"
-        ry="170"
+        rx="360"
+        ry="160"
         stroke="black"
-        strokeWidth="1.5"
+        strokeWidth="2"
         fill="none"
       />
 
