@@ -79,22 +79,28 @@ export default function Navigation() {
             loading="lazy"
           />
         </Link>
-        <div className="nav_right">
+        <div className="nav_right" style={{ display: 'flex', alignItems: 'center', gap: '2vw' }}>
           <Link href="/shop" className="div-block w-inline-block">
             <div className="text-block-2">Shop</div>
           </Link>
           <Link href="/contact-page" className="div-block w-inline-block">
             <div className="text-block-2">Contact</div>
           </Link>
-          <Link href="https://shureprint.b2bwave.com/" className="nav_cart w-inline-block">
-            <div className="sr-only">Two Two Cart</div>
+          <Link href="https://shureprint.b2bwave.com/" className="nav_cart w-inline-block" style={{ marginLeft: '0.5vw' }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7 4h10l4 5v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9l4-5z" stroke="black" strokeWidth="2" fill="none"/>
               <path d="M7 4v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4" stroke="black" strokeWidth="2" fill="none"/>
             </svg>
           </Link>
-          <Link href="https://shureprint.b2bwave.com" className="nav_button w-button">
-            Client Log In →
+          <Link
+            href="https://shureprint.b2bwave.com"
+            className="div-block w-inline-block"
+            style={{
+              backgroundColor: '#e3fc02',
+              fontWeight: 600
+            }}
+          >
+            <div className="text-block-2">Client Portal →</div>
           </Link>
         </div>
       </div>

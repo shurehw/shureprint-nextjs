@@ -20,14 +20,17 @@ export default function Footer() {
           <Link href="/" className="footer_link">
             Home
           </Link>
+          <Link href="/about" className="footer_link">
+            About
+          </Link>
           <Link href="/capabilities" className="footer_link">
             Capabilities
           </Link>
-          <Link href="/product" className="footer_link">
-            Product Offerings
+          <Link href="/shop" className="footer_link">
+            Shop
           </Link>
           <Link href="/contact-page" className="footer_link">
-            Contact Us
+            Contact
           </Link>
         </div>
         <div className="footer_column">
