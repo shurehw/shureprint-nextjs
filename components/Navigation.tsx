@@ -88,6 +88,10 @@ export default function Navigation() {
         <div className="nav_right">
           <Link href="https://shurepreint.b2bwave.com/" className="nav_cart w-inline-block">
             <div className="sr-only">Two Two Cart</div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 2L7.17 4H3C1.9 4 1 4.9 1 6V18C1 19.1 1.9 20 3 20H21C22.1 20 23 19.1 23 18V6C23 4.9 22.1 4 21 4H16.83L15 2H9Z" stroke="black" strokeWidth="2" fill="none"/>
+              <circle cx="12" cy="12" r="3" stroke="black" strokeWidth="2" fill="none"/>
+            </svg>
           </Link>
           <Link href="https://shurepreint.b2bwave.com" className="nav_button w-button">
             Client Log In →

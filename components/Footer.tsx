@@ -1,11 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Footer() {
+  const [showSuccess, setShowSuccess] = useState(false);
+
   const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Newsletter submission logic would go here
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 5000);
   };
 
   return (
@@ -51,7 +55,7 @@ export default function Footer() {
         <div className="footer_column">
           <h5 className="footer_heading">Newsletter</h5>
           <div className="form-block w-form">
-            <form onSubmit={handleNewsletterSubmit} className="newsletter-form">
+            <form onSubmit={handleNewsletterSubmit} className="newsletter-form" style={{ display: showSuccess ? 'none' : 'flex' }}>
               <input
                 type="email"
                 className="text-field is--footer w-input"
@@ -66,6 +70,12 @@ export default function Footer() {
                 className="footer-button is--newsletter w-button"
               />
             </form>
+            <div className="newsletter-success" style={{ display: showSuccess ? 'block' : 'none', color: '#fff', fontSize: '0.9rem' }}>
+              <div>Thank you! Your submission has been received!</div>
+              <div style={{ marginTop: '0.5rem', opacity: 0.8 }}>
+                Hey, Stretch your body and take a sip of water. This site is for demo purpose. Hope you find it helpful 💙
+              </div>
+            </div>
           </div>
         </div>
       </div>
