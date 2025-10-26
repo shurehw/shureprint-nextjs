@@ -33,9 +33,15 @@ export default function CompanySection() {
               alt=""
               className="home-company_image"
             />
-            <div style={{ width: '100%', maxWidth: '500px', margin: '2vw auto' }}>
-              <BuiltForGreatBrands />
-            </div>
+            <img
+              src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626f7b2535ad8a2f523d4bec_Group%20207.png"
+              loading="lazy"
+              width="447"
+              sizes="(max-width: 479px) 93vw, (max-width: 767px) 72vw, (max-width: 991px) 27vw, 29vw"
+              alt="Built For Great Brands"
+              srcSet="https://assets.website-files.com/622fa56ecc9274a545158f70/626f7b2535ad8a2f523d4bec_Group%20207-p-500.png 500w, https://assets.website-files.com/622fa56ecc9274a545158f70/626f7b2535ad8a2f523d4bec_Group%20207.png 729w"
+              className="image"
+            />
           </div>
         </div>
       </div>
