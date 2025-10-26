@@ -129,33 +129,6 @@ export default function ContactSection() {
             </div>
           </div>
         </div>
-        <div id="w-node-b30e6dcb-e5b2-2d6c-bb09-dc8cfc9d3251-4cfb33a9">
-          <img
-            src="https://cdn.prod.website-files.com/622fa56ecc9274a545158f70/626b6563cdd51f21a77dc032_shure.png"
-            loading="lazy"
-            style={{transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-360deg) skew(0, 0)'}}
-            alt=""
-            className="contact_spin"
-          />
-        </div>
-        <div id="w-node-b30e6dcb-e5b2-2d6c-bb09-dc8cfc9d3253-4cfb33a9">
-          <div className="flex-horizontal inner-padding-small">
-            <div className="ui-dot"></div>
-            <div className="heading-small">Press Enquiries</div>
-          </div>
-        </div>
-        <div id="w-node-b30e6dcb-e5b2-2d6c-bb09-dc8cfc9d3262-4cfb33a9">
-          <div className="flex-horizontal inner-padding-small">
-            <div className="ui-dot"></div>
-            <div className="heading-small">Grab A Coffee</div>
-          </div>
-        </div>
-        <div id="w-node-b30e6dcb-e5b2-2d6c-bb09-dc8cfc9d3271-4cfb33a9">
-          <div className="flex-horizontal inner-padding-small">
-            <div className="ui-dot"></div>
-            <div className="heading-small">New Business</div>
-          </div>
-        </div>
       </div>
 
       {/* Capabilities Grid */}
