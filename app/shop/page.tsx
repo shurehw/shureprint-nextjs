@@ -147,9 +147,24 @@ export default function ShopPage() {
 
   const getStartingPrice = (product: Product) => {
     if (product.base_price) {
-      return `$${product.base_price.toFixed(2)}`;
+      return `From $${product.base_price.toFixed(2)}/unit`;
     }
     return 'Contact for pricing';
+  };
+
+  const getPricingTiers = (product: Product) => {
+    if (!product.base_price) return null;
+
+    // Calculate volume pricing tiers (15% off per tier)
+    const tier1 = product.base_price;
+    const tier2 = product.base_price * 0.85;
+    const tier3 = product.base_price * 0.70;
+
+    return {
+      moq: { qty: product.moq || 500, price: tier1 },
+      mid: { qty: (product.moq || 500) * 2, price: tier2 },
+      high: { qty: (product.moq || 500) * 5, price: tier3 }
+    };
   };
 
   const handleQuoteClick = (e: React.MouseEvent, product: Product) => {

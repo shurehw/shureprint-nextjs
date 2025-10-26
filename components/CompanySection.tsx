@@ -5,22 +5,51 @@ export default function CompanySection() {
   return (
     <section className="company-section">
       <h2 className="company-heading">
-        <Link href="/product" className="company-link">We Do More→ </Link>
-        <br />
-      </h2>
-      <h2 className="company-heading">
-        <Link href="/about" className="company-link">Who We Are →</Link>
+        <Link href="/capabilities" className="company-link">Beyond Printing → Full Supply Chain Partner</Link>
         <br />
       </h2>
 
       <div className="home-grid is--company">
         <div className="home_grid-left">
           <p className="desk-80">
-            <em>shureprint is the only custom packaging source built by industry leaders in hospitality with decades of experience. We bring you the industry knowledge and supply-side connections of larger companies with unrivaled personal service. While the restaurant industry is our bread and butter, we service a wide range of clients -- from small start ups to large corporations.</em>
+            <em>We're not just a print shop. shureprint offers complete supply chain services: warehousing, fulfillment, international sourcing, and design—all from our LA facility. Built by hospitality industry leaders with decades of experience, we combine the expertise of enterprise suppliers with white-glove personal service.</em>
           </p>
-          <Link href="/contact-page" className="button w-button">
-            → Contact us
-          </Link>
+          <div style={{ display: 'flex', gap: '1vw', marginTop: '2vw', flexWrap: 'wrap' }}>
+            <Link href="/capabilities/warehousing-fulfillment" style={{
+              padding: '0.8vw 1.5vw',
+              background: '#e3fc02',
+              color: '#000',
+              borderRadius: '50px',
+              textDecoration: 'none',
+              fontSize: '0.9vw',
+              fontWeight: 600,
+              border: '1px solid #000'
+            }}>
+              Warehousing & Fulfillment
+            </Link>
+            <Link href="/capabilities/design-creative-direction" style={{
+              padding: '0.8vw 1.5vw',
+              background: '#fff',
+              color: '#000',
+              borderRadius: '50px',
+              textDecoration: 'none',
+              fontSize: '0.9vw',
+              border: '1px solid #000'
+            }}>
+              Unlimited Design Revisions
+            </Link>
+            <Link href="/about" style={{
+              padding: '0.8vw 1.5vw',
+              background: '#fff',
+              color: '#000',
+              borderRadius: '50px',
+              textDecoration: 'none',
+              fontSize: '0.9vw',
+              border: '1px solid #000'
+            }}>
+              Who We Are →
+            </Link>
+          </div>
         </div>
         <div className="home_grid-right">
           <div id="w-node-_30eade6f-a7a0-df92-bb3a-7f52bd6ef125-4cfb33a9" className="home-company_image-wrap">

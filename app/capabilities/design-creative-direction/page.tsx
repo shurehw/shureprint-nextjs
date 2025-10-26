@@ -14,16 +14,29 @@ export default function DesignPage() {
       <main className="main-wrap">
         <section className="company-section" style={{ paddingTop: '6vw', paddingBottom: '6vw' }}>
           <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 2vw' }}>
-            <h1 className="company-heading" style={{ marginBottom: '2vw' }}>
+            <h1 className="company-heading" style={{ marginBottom: '1vw' }}>
               Design & Creative Direction
             </h1>
+
+            <div style={{
+              fontSize: 'max(1.5vw, 24px)',
+              fontWeight: 600,
+              color: '#e3fc02',
+              background: '#000',
+              padding: '1vw 2vw',
+              borderRadius: '0.5vw',
+              marginBottom: '2vw',
+              display: 'inline-block'
+            }}>
+              ✨ Unlimited Design Revisions Until You&apos;re 100% Satisfied
+            </div>
 
             <div style={{ fontSize: 'max(1.2vw, 18px)', lineHeight: '1.8', marginBottom: '3vw' }}>
               <p style={{ marginBottom: '1.5vw' }}>
                 Good packaging isn&apos;t just functional—it tells your brand story. Whether you need a full rebrand or just help setting up print files, we&apos;ve got you covered.
               </p>
               <p style={{ marginBottom: '1.5vw' }}>
-                We work with your existing brand guidelines or help you develop new ones. The goal is always the same: packaging that looks great and prints perfectly.
+                We work with your existing brand guidelines or help you develop new ones. The goal is always the same: packaging that looks great and prints perfectly. And yes, that means unlimited revisions—we iterate until it&apos;s right.
               </p>
             </div>
 
