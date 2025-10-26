@@ -45,41 +45,28 @@ export default function BuiltForGreatBrands() {
       {/* Text */}
       <text
         x="400"
-        y="155"
+        y="180"
         textAnchor="middle"
-        fontFamily="'Brush Script MT', cursive"
-        fontSize="65"
+        fontFamily="serif"
+        fontSize="60"
         fontWeight="400"
-        fontStyle="italic"
+        letterSpacing="6"
         fill="black"
       >
-        Custom Print &
+        BUILT FOR
       </text>
 
       <text
         x="400"
-        y="230"
+        y="250"
         textAnchor="middle"
-        fontFamily="'Brush Script MT', cursive"
-        fontSize="75"
+        fontFamily="serif"
+        fontSize="60"
         fontWeight="400"
-        fontStyle="italic"
+        letterSpacing="6"
         fill="black"
       >
-        Packaging
-      </text>
-
-      <text
-        x="400"
-        y="295"
-        textAnchor="middle"
-        fontFamily="'Brush Script MT', cursive"
-        fontSize="50"
-        fontWeight="400"
-        fontStyle="italic"
-        fill="black"
-      >
-        "Built For Great Brands"
+        GREAT BRANDS
       </text>
     </svg>
   );
