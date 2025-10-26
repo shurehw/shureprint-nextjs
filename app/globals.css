@@ -55,8 +55,7 @@ img {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
     padding: 0 2vw;
 }
 
@@ -364,9 +363,14 @@ img {
 /* Company Section */
 .company-section {
     padding: 6vw 2vw;
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
     border-top: 1px solid #000;
+}
+
+.company-section > * {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .company-heading {
@@ -413,9 +417,14 @@ img {
 /* Contact Section */
 .contact-section {
     padding: 6vw 2vw;
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
     border-top: 1px solid #000;
+}
+
+.contact-section > * {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .list-works-wrapper {
@@ -796,6 +805,19 @@ img {
 
     .nav-left {
         display: none;
+    }
+
+    .nav_right .div-block,
+    .nav_right .nav_cart {
+        display: none;
+    }
+
+    .nav_right .mobile-menu-button {
+        display: block !important;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
     }
 
     .nav-logo img {

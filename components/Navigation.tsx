@@ -2,8 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export default function Navigation() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <nav className="nav w-nav">
       <div className="custom-css w-embed">
@@ -19,7 +22,7 @@ export default function Navigation() {
           @keyframes marquee {
             from { transform: translateX(0); }
             to { transform: translateX(-100%); }
-          }
+            }
 
           a {
             color: inherit;
@@ -60,6 +63,34 @@ export default function Navigation() {
               content: "→"
             }
           }
+
+          .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #f5efe5;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            gap: 2rem;
+          }
+
+          .mobile-menu-close {
+            align-self: flex-end;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+          }
+
+          .mobile-menu-link {
+            font-size: 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #000;
+          }
         `}</style>
       </div>
       <div className="nav-contain">
@@ -80,6 +111,14 @@ export default function Navigation() {
           />
         </Link>
         <div className="nav_right" style={{ display: 'flex', alignItems: 'center', gap: '2vw' }}>
+          <button
+            className="mobile-menu-button"
+            onClick={() => setMobileMenuOpen(true)}
+            style={{ display: 'none' }}
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
           <Link href="/shop" className="div-block w-inline-block">
             <div className="text-block-2">Shop</div>
           </Link>
@@ -104,6 +143,19 @@ export default function Navigation() {
           </Link>
         </div>
       </div>
+
+      {mobileMenuOpen && (
+        <div className="mobile-menu">
+          <button className="mobile-menu-close" onClick={() => setMobileMenuOpen(false)}>×</button>
+          <Link href="/" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+          <Link href="/about" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>About</Link>
+          <Link href="/capabilities" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Capabilities</Link>
+          <Link href="/shop" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Shop</Link>
+          <Link href="/contact-page" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+          <Link href="https://shureprint.b2bwave.com/" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Cart</Link>
+          <Link href="https://shureprint.b2bwave.com" className="mobile-menu-link" style={{ backgroundColor: '#e3fc02', borderRadius: '8px', padding: '1rem' }} onClick={() => setMobileMenuOpen(false)}>Client Portal →</Link>
+        </div>
+      )}
     </nav>
   );
 }
