@@ -157,6 +157,54 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+
+      {/* Capabilities Grid */}
+      <div className="w-layout-grid main-grid" style={{ marginTop: '4vw' }}>
+        <div className="content-wrapper padding-bottom-medium">
+          <h1 className="heading-large margin-bottom-small">Our Capabilities</h1>
+        </div>
+        <div className="capabilities-grid" style={{
+          gridColumn: '1 / -1',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '2vw'
+        }}>
+          {[
+            { title: 'Warehousing & Fulfillment', icon: '📦', link: '/capabilities#warehousing' },
+            { title: 'Managing Timelines', icon: '⏱️', link: '/capabilities#timelines' },
+            { title: 'Sourcing Domestically & Internationally', icon: '🌍', link: '/capabilities#sourcing' },
+            { title: 'Mock Ups, Sampling, Prototyping', icon: '✏️', link: '/capabilities#prototyping' },
+            { title: 'Design & Creative Direction', icon: '🎨', link: '/capabilities#design' }
+          ].map((capability, index) => (
+            <Link
+              key={index}
+              href={capability.link}
+              className="capability-tile"
+              style={{
+                padding: '2vw',
+                border: '1px solid #000',
+                borderRadius: '1vw',
+                textDecoration: 'none',
+                color: '#000',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                minHeight: '200px',
+                transition: 'all 0.3s ease',
+                background: '#fff'
+              }}
+            >
+              <div>
+                <div style={{ fontSize: '3vw', marginBottom: '1vw' }}>{capability.icon}</div>
+                <h3 style={{ fontSize: '1.3vw', fontWeight: '500', marginBottom: '1vw' }}>
+                  {capability.title}
+                </h3>
+              </div>
+              <div style={{ fontSize: '1vw', color: '#666' }}>→ View</div>
+            </Link>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

@@ -897,11 +897,29 @@ img {
 .div-block-2 {
     color: #000;
     text-decoration: none;
-    margin-right: 2vw;
+    margin-left: 2vw;
+    border: 1px solid #000;
+    border-radius: 100vw;
+    display: inline-block;
+    width: 12vw;
+    text-align: center;
 }
 
 .text-block-2 {
+    padding: 1vw 0;
     font-size: 1vw;
+}
+
+.text-block-2:hover {
+    border-radius: 100vw;
+    background-color: #e3fc02;
+}
+
+/* Capability Tiles */
+.capability-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: #f6efe8 !important;
 }
 
 /* Home Grid Layout */

@@ -684,6 +684,77 @@ export default function ShopPage() {
             → Contact Us
           </Link>
         </section>
+
+        {/* Client Examples Section */}
+        <section className="contact-section" style={{ padding: '4vw 2vw', background: '#fff' }}>
+          <h2 className="company-heading" style={{ fontSize: '2.5vw', marginBottom: '2vw', textAlign: 'left', maxWidth: '1400px', margin: '0 auto 2vw' }}>
+            <Link href="/client-list" className="company-link" style={{ textDecoration: 'none', color: '#000' }}>
+              → Client Examples
+            </Link>
+          </h2>
+          <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2vw' }}>
+              {[
+                { name: 'Show Me Your Mumu', image: 'https://cdn.prod.website-files.com/62453a78ddc3de39ad34b9a2/629fa92e4d65b26ca3ff3c5a_Screen%20Shot%202022-06-03%20at%2010.13.25%20AM.png' },
+                { name: 'Butchers Daughter', image: 'https://cdn.prod.website-files.com/62453a78ddc3de39ad34b9a2/6248dc42c98b78d7f095c08e_Screen%20Shot%202022-04-02%20at%205.24.42%20PM.png' },
+                { name: 'Private Suite', image: 'https://cdn.prod.website-files.com/62453a78ddc3de39ad34b9a2/6248dc6ba10a34c0e8ceca8a_Screen%20Shot%202022-04-02%20at%205.26.55%20PM.png' },
+                { name: 'Ggiata', image: 'https://cdn.prod.website-files.com/62453a78ddc3de39ad34b9a2/6248dc819f3a25bd16854a74_Screen%20Shot%202022-04-02%20at%205.27.53%20PM.png' },
+                { name: 'The Nice Guy', image: 'https://cdn.prod.website-files.com/62453a78ddc3de39ad34b9a2/6248dca4c1f89d19ee0e78e2_Screen%20Shot%202022-04-02%20at%205.29.24%20PM.png' },
+                { name: 'Delilah', image: 'https://cdn.prod.website-files.com/62453a78ddc3de39ad34b9a2/6248dcb99d2cf8e39d60a5bb_Screen%20Shot%202022-04-02%20at%205.30.05%20PM.png' }
+              ].map((client) => (
+                <Link
+                  key={client.name}
+                  href="/client-list"
+                  className="client-tile"
+                  style={{
+                    position: 'relative',
+                    aspectRatio: '1',
+                    overflow: 'hidden',
+                    borderRadius: '0.5vw',
+                    textDecoration: 'none',
+                    color: '#fff',
+                    display: 'block',
+                    transition: 'transform 0.3s ease'
+                  }}
+                >
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundImage: `url(${client.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    transition: 'transform 0.3s ease'
+                  }} className="client-tile-bg" />
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '1.5vw',
+                    left: '1.5vw',
+                    right: '1.5vw',
+                    fontSize: '1.5vw',
+                    fontWeight: '600',
+                    zIndex: 1,
+                    textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+                  }}>
+                    {client.name}
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div style={{ textAlign: 'center', marginTop: '3vw' }}>
+              <Link href="/client-list" className="footer-button w-button" style={{
+                display: 'inline-block',
+                background: '#000',
+                color: '#fff',
+                padding: '1vw 2vw',
+                borderRadius: '50px',
+                textDecoration: 'none',
+                fontSize: '1vw'
+              }}>
+                View all cases →
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Quote Modal */}
@@ -988,6 +1059,15 @@ export default function ShopPage() {
           outline: 2px solid #e3fc02;
           outline-offset: 2px;
           transform: translateY(-2px);
+        }
+
+        /* Client tile hover effects */
+        .client-tile:hover {
+          transform: scale(1.02);
+        }
+
+        .client-tile:hover .client-tile-bg {
+          transform: scale(1.1);
         }
 
         @media (max-width: 768px) {
