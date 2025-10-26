@@ -1188,6 +1188,7 @@ img {
     background-color: #fff;
     font-size: 1vw;
     font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .textarea {
@@ -1200,6 +1201,7 @@ img {
 .w-input:focus {
     outline: none;
     border-color: #e3fc02;
+    box-shadow: 0 0 0 2px rgba(227, 252, 2, 0.2);
 }
 
 .form-button {
@@ -1228,10 +1230,37 @@ img {
     margin-top: 4vw;
 }
 
+.hero-product-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
 .image-3,
 .image-10 {
     width: 100%;
     height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.hero-product-item:hover .image-3,
+.hero-product-item:hover .image-10 {
+    transform: scale(1.02);
+}
+
+.hero-product-overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 0.3s ease;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0);
+}
+
+.hero-product-item:hover .hero-product-overlay {
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.05);
 }
 
 
