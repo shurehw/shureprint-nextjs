@@ -29,12 +29,16 @@ export default function ShopPage() {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [showQuoteModal, setShowQuoteModal] = useState(false);
+  const [showSampleModal, setShowSampleModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   // Filter states
   const [selectedType, setSelectedType] = useState<ProductType>('all');
   const [selectedSort, setSelectedSort] = useState<SortOption>('newest');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedMaterial, setSelectedMaterial] = useState<string>('all');
+  const [selectedIndustry, setSelectedIndustry] = useState<string>('all');
+  const [priceRange, setPriceRange] = useState<string>('all');
 
   useEffect(() => {
     loadProducts();
@@ -42,7 +46,7 @@ export default function ShopPage() {
 
   useEffect(() => {
     applyFiltersAndSort();
-  }, [products, selectedType, selectedSort, searchQuery]);
+  }, [products, selectedType, selectedSort, searchQuery, selectedMaterial, selectedIndustry, priceRange]);
 
   const loadProducts = async () => {
     try {
@@ -85,6 +89,42 @@ export default function ShopPage() {
       );
     }
 
+    // Apply material filter
+    if (selectedMaterial !== 'all') {
+      filtered = filtered.filter((p) => {
+        const name = p.name.toLowerCase();
+        const desc = p.description?.toLowerCase() || '';
+        return name.includes(selectedMaterial) || desc.includes(selectedMaterial);
+      });
+    }
+
+    // Apply industry filter
+    if (selectedIndustry !== 'all') {
+      // This would ideally come from product metadata
+      // For now, filter by product type relevance
+      filtered = filtered.filter((p) => {
+        const name = p.name.toLowerCase();
+        if (selectedIndustry === 'food-service' && (name.includes('food') || name.includes('container') || name.includes('cup'))) return true;
+        if (selectedIndustry === 'retail' && (name.includes('bag') || name.includes('box'))) return true;
+        if (selectedIndustry === 'hospitality') return true; // all products relevant
+        return selectedIndustry === 'all';
+      });
+    }
+
+    // Apply price range filter
+    if (priceRange !== 'all') {
+      filtered = filtered.filter((p) => {
+        const price = p.base_price || 0;
+        switch (priceRange) {
+          case 'under-100': return price < 100;
+          case '100-300': return price >= 100 && price < 300;
+          case '300-500': return price >= 300 && price < 500;
+          case '500-plus': return price >= 500;
+          default: return true;
+        }
+      });
+    }
+
     // Apply sorting
     switch (selectedSort) {
       case 'price-low':
@@ -117,6 +157,13 @@ export default function ShopPage() {
     e.stopPropagation();
     setSelectedProduct(product);
     setShowQuoteModal(true);
+  };
+
+  const handleSampleClick = (e: React.MouseEvent, product: Product) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSelectedProduct(product);
+    setShowSampleModal(true);
   };
 
   if (loading) {
@@ -161,7 +208,7 @@ export default function ShopPage() {
         {/* Filters & Search */}
         <section style={{
           padding: '2vw',
-          background: '#e0dbd3',
+          background: '#f6efe8',
           borderBottom: '1px solid #ccc'
         }}>
           <div style={{
@@ -212,44 +259,127 @@ export default function ShopPage() {
               ))}
             </div>
 
+            {/* Material Filter */}
+            <select
+              value={selectedMaterial}
+              onChange={(e) => setSelectedMaterial(e.target.value)}
+              style={{
+                padding: '0.8vw 1.5vw',
+                fontSize: '0.9vw',
+                border: '1px solid #000',
+                borderRadius: '50px',
+                background: '#fff',
+                cursor: 'pointer'
+              }}
+            >
+              <option value="all">All Materials</option>
+              <option value="paper">Paper</option>
+              <option value="gloss">Gloss</option>
+              <option value="matte">Matte</option>
+              <option value="kraft">Kraft</option>
+            </select>
+
+            {/* Industry Filter */}
+            <select
+              value={selectedIndustry}
+              onChange={(e) => setSelectedIndustry(e.target.value)}
+              style={{
+                padding: '0.8vw 1.5vw',
+                fontSize: '0.9vw',
+                border: '1px solid #000',
+                borderRadius: '50px',
+                background: '#fff',
+                cursor: 'pointer'
+              }}
+            >
+              <option value="all">All Industries</option>
+              <option value="hospitality">Hospitality</option>
+              <option value="food-service">Food Service</option>
+              <option value="retail">Retail</option>
+            </select>
+
+            {/* Price Range Filter */}
+            <select
+              value={priceRange}
+              onChange={(e) => setPriceRange(e.target.value)}
+              style={{
+                padding: '0.8vw 1.5vw',
+                fontSize: '0.9vw',
+                border: '1px solid #000',
+                borderRadius: '50px',
+                background: '#fff',
+                cursor: 'pointer'
+              }}
+            >
+              <option value="all">All Prices</option>
+              <option value="under-100">Under $100</option>
+              <option value="100-300">$100 - $300</option>
+              <option value="300-500">$300 - $500</option>
+              <option value="500-plus">$500+</option>
+            </select>
+
             {/* Sort */}
-            <div style={{ display: 'flex', gap: '1vw', alignItems: 'center' }}>
-              <label style={{ fontSize: '1vw', fontWeight: 'bold' }}>Sort:</label>
-              <select
-                value={selectedSort}
-                onChange={(e) => setSelectedSort(e.target.value as SortOption)}
-                style={{
-                  padding: '0.8vw 1.5vw',
-                  fontSize: '1vw',
-                  border: '1px solid #000',
-                  borderRadius: '50px',
-                  background: '#fff',
-                  cursor: 'pointer'
-                }}
-              >
-                <option value="newest">Newest</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="lead-time">Fastest Lead Time</option>
-              </select>
-            </div>
+            <select
+              value={selectedSort}
+              onChange={(e) => setSelectedSort(e.target.value as SortOption)}
+              style={{
+                padding: '0.8vw 1.5vw',
+                fontSize: '0.9vw',
+                border: '1px solid #000',
+                borderRadius: '50px',
+                background: '#fff',
+                cursor: 'pointer'
+              }}
+            >
+              <option value="newest">Newest</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="lead-time">Fastest Lead Time</option>
+            </select>
           </div>
 
-          {/* Results Count */}
+          {/* Results Count with Clear Filters */}
           <div style={{
             maxWidth: '1400px',
             margin: '1vw auto 0',
-            fontSize: '0.9vw',
-            color: '#666'
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
           }}>
-            {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'} found
+            <div style={{ fontSize: '0.9vw', color: '#666' }}>
+              {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'} found
+            </div>
+            {(selectedType !== 'all' || selectedMaterial !== 'all' || selectedIndustry !== 'all' || priceRange !== 'all' || searchQuery) && (
+              <button
+                onClick={() => {
+                  setSelectedType('all');
+                  setSelectedMaterial('all');
+                  setSelectedIndustry('all');
+                  setPriceRange('all');
+                  setSearchQuery('');
+                }}
+                style={{
+                  padding: '0.5vw 1vw',
+                  fontSize: '0.9vw',
+                  background: 'transparent',
+                  border: '1px solid #999',
+                  borderRadius: '50px',
+                  cursor: 'pointer',
+                  color: '#666',
+                  transition: 'all 0.3s ease'
+                }}
+                className="clear-filters-btn"
+              >
+                Clear all filters
+              </button>
+            )}
           </div>
         </section>
 
         {/* Product Grid */}
         <section style={{
           padding: '4vw 2vw',
-          background: '#e0dbd3'
+          background: '#f6efe8'
         }}>
           <div style={{
             maxWidth: '1400px',
@@ -416,13 +546,73 @@ export default function ShopPage() {
                         </div>
                       </Link>
 
+                      {/* Trust Badges */}
+                      <div style={{
+                        display: 'flex',
+                        gap: '0.5vw',
+                        marginTop: '0.8vw',
+                        flexWrap: 'wrap'
+                      }}>
+                        {product.product_type === 'food_safe' && (
+                          <span style={{
+                            padding: '0.3vw 0.8vw',
+                            background: '#f0f0f0',
+                            borderRadius: '12px',
+                            fontSize: '0.7vw',
+                            color: '#666',
+                            fontWeight: '500'
+                          }}>
+                            ✓ FDA Approved
+                          </span>
+                        )}
+                        <span style={{
+                          padding: '0.3vw 0.8vw',
+                          background: '#f0f0f0',
+                          borderRadius: '12px',
+                          fontSize: '0.7vw',
+                          color: '#666',
+                          fontWeight: '500'
+                        }}>
+                          ✓ Custom Printing
+                        </span>
+                        {product.moq && product.moq <= 500 && (
+                          <span style={{
+                            padding: '0.3vw 0.8vw',
+                            background: '#e3fc02',
+                            borderRadius: '12px',
+                            fontSize: '0.7vw',
+                            color: '#000',
+                            fontWeight: '500'
+                          }}>
+                            Low MOQ
+                          </span>
+                        )}
+                      </div>
+
                       {/* Action Buttons */}
                       <div style={{
                         display: 'grid',
-                        gridTemplateColumns: '1fr 1fr',
+                        gridTemplateColumns: '1fr 1fr 1fr',
                         gap: '0.5vw',
                         marginTop: '1vw'
                       }}>
+                        <button
+                          onClick={(e) => handleSampleClick(e, product)}
+                          style={{
+                            padding: '0.8vw',
+                            background: '#fff',
+                            color: '#000',
+                            border: '1px solid #000',
+                            borderRadius: '50px',
+                            fontSize: '0.85vw',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease',
+                            fontWeight: '400'
+                          }}
+                          className="sample-btn"
+                        >
+                          📦 Sample
+                        </button>
                         <button
                           onClick={(e) => handleQuoteClick(e, product)}
                           style={{
@@ -431,7 +621,7 @@ export default function ShopPage() {
                             color: '#000',
                             border: '1px solid #000',
                             borderRadius: '50px',
-                            fontSize: '0.9vw',
+                            fontSize: '0.85vw',
                             cursor: 'pointer',
                             transition: 'all 0.3s ease',
                             fontWeight: '500'
@@ -448,7 +638,7 @@ export default function ShopPage() {
                             color: '#fff',
                             border: 'none',
                             borderRadius: '50px',
-                            fontSize: '0.9vw',
+                            fontSize: '0.85vw',
                             cursor: 'pointer',
                             transition: 'background 0.3s ease',
                             textAlign: 'center',
@@ -459,7 +649,7 @@ export default function ShopPage() {
                           }}
                           className="view-product-btn"
                         >
-                          View Details →
+                          Details →
                         </Link>
                       </div>
                     </div>
@@ -590,6 +780,122 @@ export default function ShopPage() {
                 }}
               >
                 Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Sample Modal */}
+      {showSampleModal && selectedProduct && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0,0,0,0.7)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 10000,
+            padding: '2vw'
+          }}
+          onClick={() => setShowSampleModal(false)}
+        >
+          <div
+            style={{
+              background: '#fff',
+              borderRadius: '1vw',
+              padding: '3vw',
+              maxWidth: '500px',
+              width: '100%',
+              position: 'relative'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowSampleModal(false)}
+              style={{
+                position: 'absolute',
+                top: '1vw',
+                right: '1vw',
+                background: 'none',
+                border: 'none',
+                fontSize: '2vw',
+                cursor: 'pointer',
+                color: '#999'
+              }}
+            >
+              ×
+            </button>
+
+            <div style={{ textAlign: 'center', marginBottom: '1.5vw' }}>
+              <div style={{ fontSize: '3vw', marginBottom: '0.5vw' }}>📦</div>
+              <h2 style={{ fontSize: '1.8vw', marginBottom: '0.5vw' }}>
+                Request Free Sample
+              </h2>
+              <h3 style={{ fontSize: '1.2vw', color: '#666', fontWeight: '400' }}>
+                {selectedProduct.name}
+              </h3>
+            </div>
+
+            <p style={{ fontSize: '1vw', marginBottom: '2vw', lineHeight: '1.6', color: '#666' }}>
+              Get a free sample delivered to your door. See and feel the quality before ordering.
+              Our team will contact you within 24 hours.
+            </p>
+
+            <div style={{
+              background: '#f6efe8',
+              padding: '1vw',
+              borderRadius: '0.5vw',
+              marginBottom: '2vw',
+              fontSize: '0.9vw'
+            }}>
+              <strong>What you'll receive:</strong>
+              <ul style={{ margin: '0.5vw 0 0 1.5vw', padding: 0 }}>
+                <li>Physical product sample</li>
+                <li>Print quality examples</li>
+                <li>Material specifications</li>
+                <li>Pricing information</li>
+              </ul>
+            </div>
+
+            <div style={{ display: 'flex', gap: '1vw' }}>
+              <button
+                onClick={() => setShowSampleModal(false)}
+                style={{
+                  flex: 1,
+                  padding: '1vw',
+                  background: '#fff',
+                  color: '#000',
+                  border: '1px solid #ccc',
+                  borderRadius: '50px',
+                  fontSize: '1vw',
+                  cursor: 'pointer'
+                }}
+              >
+                Cancel
+              </button>
+              <Link
+                href={`/contact-page?product=${encodeURIComponent(selectedProduct.name)}&type=sample`}
+                style={{
+                  flex: 1,
+                  padding: '1vw',
+                  background: '#e3fc02',
+                  color: '#000',
+                  border: '1px solid #000',
+                  borderRadius: '50px',
+                  fontSize: '1vw',
+                  cursor: 'pointer',
+                  textAlign: 'center',
+                  textDecoration: 'none',
+                  display: 'block',
+                  fontWeight: '500'
+                }}
+              >
+                Request Sample
               </Link>
             </div>
           </div>

@@ -70,7 +70,11 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer_bottom">
-        <div className="footer_text">© 2024 Shureprint. All rights reserved.</div>
+        <div className="footer_text">
+          © 2024 Shureprint. All rights reserved.
+          <span style={{ margin: '0 1rem', color: '#999' }}>•</span>
+          Powered by <Link href="https://shurehospitalitywholesale.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', transition: 'opacity 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'} onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>Shure Hospitality Wholesale</Link>
+        </div>
         <div className="footer_links">
           <Link href="https://shurepreint.b2bwave.com/" className="footer_link">
             Client Portal

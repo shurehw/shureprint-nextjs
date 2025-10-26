@@ -20,7 +20,7 @@ body {
     font-family: 'Lato', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #e0dbd3;
+    background-color: #f6efe8;
     color: #000;
     font-size: 1vw;
     line-height: 1.4;
@@ -122,7 +122,7 @@ img {
     position: relative;
     min-height: 60vh;
     overflow: hidden;
-    background-color: #e0dbd3;
+    background-color: #f6efe8;
 }
 
 .banner {
@@ -151,7 +151,7 @@ img {
     margin-top: 4vw;
     flex-direction: column;
     justify-content: center;
-    background-color: #e0dbd3;
+    background-color: #f6efe8;
 }
 
 .marquee-track {
@@ -195,7 +195,7 @@ img {
 .featured-section {
     position: relative;
     padding: 4vw 2vw;
-    background-color: #e0dbd3;
+    background-color: #f6efe8;
 }
 
 .desk-80 {
@@ -1047,7 +1047,7 @@ img {
 /* Company Section */
 .company-section {
     padding: 4vw 2vw;
-    background-color: #e0dbd3;
+    background-color: #f6efe8;
 }
 
 .company-heading {
@@ -1123,7 +1123,7 @@ img {
 /* Contact Section */
 .contact-section {
     padding: 4vw 2vw;
-    background-color: #e0dbd3;
+    background-color: #f6efe8;
 }
 
 .contact_info {
