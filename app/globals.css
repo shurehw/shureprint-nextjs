@@ -52,11 +52,12 @@ img {
 }
 
 .nav-contain {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 2vw;
 }
 
 .nav-menu {
@@ -68,6 +69,12 @@ img {
     display: flex;
     gap: 2rem;
     align-items: center;
+    justify-content: flex-start;
+}
+
+.nav-logo {
+    display: flex;
+    justify-content: center;
 }
 
 .nav-logo img {
@@ -79,6 +86,7 @@ img {
     display: flex;
     gap: 1rem;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .nav-button,
@@ -645,8 +653,7 @@ img {
     background: #000;
     color: #fff;
     padding: 6rem 3rem 3rem;
-    max-width: 1400px;
-    margin: 4rem auto 0;
+    width: 100%;
 }
 
 .footer_top {
@@ -656,6 +663,9 @@ img {
     padding-bottom: 3rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid #333;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer_bottom {
@@ -665,6 +675,9 @@ img {
     padding-top: 2rem;
     flex-wrap: wrap;
     gap: 2rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer_column {
