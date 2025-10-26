@@ -72,9 +72,6 @@ export default function Footer() {
             </form>
             <div className="newsletter-success" style={{ display: showSuccess ? 'block' : 'none', color: '#fff', fontSize: '0.9rem' }}>
               <div>Thank you! Your submission has been received!</div>
-              <div style={{ marginTop: '0.5rem', opacity: 0.8 }}>
-                Hey, Stretch your body and take a sip of water. This site is for demo purpose. Hope you find it helpful 💙
-              </div>
             </div>
           </div>
         </div>
@@ -86,11 +83,20 @@ export default function Footer() {
           Powered by <Link href="https://shurehospitalitywholesale.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', transition: 'opacity 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'} onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}>Shure Hospitality Wholesale</Link>
         </div>
         <div className="footer_links">
-          <Link href="https://shurepreint.b2bwave.com/" className="footer_link">
+          <Link href="https://shureprint.b2bwave.com/" className="footer_link">
             Client Portal
           </Link>
-          <Link href="/contact-page" className="footer_link">
+          <Link href="/privacy" className="footer_link">
             Privacy Policy
+          </Link>
+          <Link href="/terms" className="footer_link">
+            Terms & Conditions
+          </Link>
+          <Link href="/about" className="footer_link">
+            About Us
+          </Link>
+          <Link href="/client-list" className="footer_link">
+            Clients
           </Link>
         </div>
       </div>

@@ -1,8 +1,10 @@
+'use client';
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 
-export const metadata = {
+const metadata = {
   title: 'About Us | Shureprint - LA Print & Packaging Company',
   description: 'Family-owned print and packaging company based in LA. Decades of experience serving hospitality, food service, and retail brands.',
 };

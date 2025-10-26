@@ -65,7 +65,7 @@ export default function FeaturedSection() {
         </div>
         <div className="home_grid-right">
           {products.boxes.map((product, index) => (
-            <Link href="#" key={index} className="featured-product w-inline-block">
+            <Link href="/shop?category=Boxes" key={index} className="featured-product w-inline-block">
               <div className="featured-product_top">
                 <img src={product.mainImage} loading="eager" alt="" className="featured_products-image" />
                 {product.spinner1 && <img src={product.spinner1} loading="lazy" alt="" className="buy-spinner_first" />}
@@ -90,7 +90,7 @@ export default function FeaturedSection() {
         </div>
         <div className="home_grid-right">
           {products.paperBags.map((product, index) => (
-            <Link href="#" key={index} className="featured-product w-inline-block">
+            <Link href="/shop?category=Paper+Bags" key={index} className="featured-product w-inline-block">
               <div className="featured-product_top">
                 <img src={product.mainImage} loading="eager" alt="" className="featured_products-image" />
                 {product.spinner1 && <img src={product.spinner1} loading="lazy" alt="" className="buy-spinner_first" />}
@@ -115,7 +115,7 @@ export default function FeaturedSection() {
         </div>
         <div className="home_grid-right">
           {products.cupsContainers.map((product, index) => (
-            <Link href={index === 0 ? "/product" : "#"} key={index} className="featured-product w-inline-block">
+            <Link href="/shop?category=Cups+%26+Containers" key={index} className="featured-product w-inline-block">
               <div className="featured-product_top">
                 <img src={product.mainImage} loading="eager" alt="" className="featured_products-image" />
                 {product.spinner1 && <img src={product.spinner1} loading="lazy" alt="" className="buy-spinner_first" />}

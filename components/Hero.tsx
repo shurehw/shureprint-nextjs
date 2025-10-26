@@ -1,8 +1,33 @@
+import Link from 'next/link';
+
 export default function Hero() {
   return (
     <header className="hero-section">
       <div className="banner">
         <div className="text-block">• Printing Designing Creating •</div>
+      </div>
+
+      <div style={{ textAlign: 'center', padding: '3vw 2vw' }}>
+        <h1 style={{ fontSize: 'max(3vw, 36px)', marginBottom: '1.5vw', fontWeight: 400, maxWidth: '900px', margin: '0 auto 1.5vw' }}>
+          Custom print & packaging for brands that care about the details
+        </h1>
+        <Link
+          href="/contact-page"
+          className="nav_button w-button"
+          style={{
+            display: 'inline-block',
+            fontSize: 'max(1.1vw, 17px)',
+            padding: '1.2vw 2.5vw',
+            backgroundColor: '#000',
+            color: '#fff',
+            borderRadius: '100vw',
+            textDecoration: 'none',
+            border: '1px solid #000',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          Request a Quote →
+        </Link>
       </div>
 
       <div className="marquee">

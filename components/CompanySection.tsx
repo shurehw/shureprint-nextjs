@@ -9,8 +9,7 @@ export default function CompanySection() {
         <br />
       </h2>
       <h2 className="company-heading">
-        <Link href="/contact-page" className="company-link">Who We Are</Link>
-        <Link href="#" className="company-link">→</Link>
+        <Link href="/about" className="company-link">Who We Are →</Link>
         <br />
       </h2>
 
